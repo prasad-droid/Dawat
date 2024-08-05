@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foodie Login</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        background-color: #e6d8d8d4;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .login-container {
+        background-color: rgba(239, 239, 227, 0.946);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        height: 70vh;
+        overflow: hidden;
+        overflow-y: auto;
+        text-align: center;
+      }
+
+      .login-container::-webkit-scrollbar {
+        width: 0px;
+        background: transparent; /* Optional: just to ensure no background */
+      }
+
+      .login-container {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .login-container h1 {
+        margin-top: -12px;
+        padding: 9px;
+        color: #e31829;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #193b53;
+        font-size: large;
+        font-weight: 570;
+      }
+
+      .input-group input {
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #e63946;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #d62828;
+      }
+
+      a {
+        text-decoration: none;
+        color: #193b53;
+        font-size: larger;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Welcome to Daawat!</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="input-group">
+          <label for="name">Enter Your Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="input-group">
+          <label for="phone">Enter Your Phone No:</label>
+          <input type="text" id="phone" name="phone" required />
+        </div>
+        <div class="input-group">
+          <label for="email">Enter Your Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Enter Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="input-group">
+          <label for="state">Enter Your State:</label>
+          <input type="text" id="state" name="state" required />
+        </div>
+        <div class="input-group">
+          <label for="city">Enter Your City:</label>
+          <input type="text" id="city" name="city" required />
+        </div>
+        <div class="input-group">
+          <label for="address">Enter Your Address:</label>
+          <input type="text" id="address" name="address" required />
+        </div>
+        <button type="submit">Submit</button>
+        <a href="login">
+          <p>Login ?</p>
+        </a>
+      </form>
+    </div>
+  </body>
+</html>

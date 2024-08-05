@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(243, 212, 212);
+}
+
+.food {
+  width: 220px;
+  height: 210px;
+  border-radius: 10px;
+}
+
+.allfood {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+}
+
+.allfood:hover {
+  transform: scale(1.1);
+  transition: 0.8s;
+}
+
+.titles {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 50px;
+}
+
+.allburger {
+  display: flex;
+  justify-content: space-around;
+}
+
+.foodcontain {
+  border-radius: 23px 23px 0px 0px;
+  height: auto;
+}
+
+.foodcontain img {
+  height: 250px;
+  width: 250px;
+  border-radius: 23px;
+}
+
+.category {
+  padding: 80px;
+}
+
+.mind {
+  padding-top: 2%;
+  font-size: 32px;
+  font-weight: bolder;
+}
+
+.nav-item {
+  font-size: 23px;
+  margin-right: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.deals img {
+  width: 100%;
+  padding: 12px;
+  height: 200px;
+  border-radius: 23px;
+}
+
+.dealsname {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  width: 100%;
+  height: 30px;
+  font-size: x-large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.deals button {
+  width: 50%;
+  height: 40px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 23px;
+  background-color: rgb(206, 196, 196);
+  border-radius: 13px;
+}
+
+.ti {
+  font-size: 23px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-left: 5px;
+}
+
+.ch {
+  margin: 25px;
+  width: 100px;
+  height: 300px;
+  background-color: rgb(149, 172, 114);
+  border-radius: 23px;
+}
+
+.ch:hover {
+  transform: scale(1.1);
+  transition: 0.8s;
+}
+
+.underpart {
+  border: 1px solid black;
+  border-radius: 12px;
+  width: 440px;
+  height: 100px;
+  display: flex;
+  margin: 12px;
+  overflow: hidden;
+}
+
+.underpart:hover {
+  transform: scale(1.1);
+  transition: 0.8s;
+}
+
+.underpart img {
+  width: 100px;
+  border-radius: 12px 0px 0px 12px;
+}
+
+.detailss {
+  margin: 6px;
+  line-height: 12px;
+}
+
+.headi {
+  margin-top: -50px;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 40px;
+}
+
+.headis{
+  padding:2%;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 40px;
+}
+
+.tpart {
+  margin-top: 100px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.foods {
+  width: 30%;
+  margin: 5px;
+  padding: 5px;
+  background: #e9dede;
+  border-radius: 12px;
+}
+
+.itemss {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+}
+
+.foodname {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  width: 60%;
+  line-height: 1;
+}
+
+.food-img {
+  width: 70%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  margin: 10px auto;
+}
+
+.foodcategory {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  margin: 2%;
+}
+
+.foods:hover{
+  transform: scale(1.2);
+  transition: 1.2s;
+}
+
+.down{
+  background-color: black;
+  color: white;
+  display:flex;
+  justify-content: space-around;
+}
+
+.sa p{
+  color: white;
+  line-height: 23px;
+  font-size: 18px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.downpart{
+  background-color: black;
+  color: white;
+}
+
+.sc p{
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+font-size:35px
+}
+
+.sso i{
+  margin: 6px;
+}
+
+.prod {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  padding-top: 85px; /* Space for fixed navbar */
+}
+
+.ordercon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 90%;
+  max-width: 1000px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.foodimgs {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.foodimgs img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.detialsfood {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nameoffood p {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.descfood p {
+  font-size: 1em;
+  color: #666;
+  margin: 10px 0;
+}
+
+.price p {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #e74c3c;
+  margin: 10px 0;
+}
+
+.quantity {
+  margin: 20px 0;
+}
+
+.quantity p {
+  margin: 0;
+  font-size: 1em;
+  color: #333;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+button,.btn {
+  padding: 12px 24px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #27ae60;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+button:hover {
+  background-color: #2ecc71;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+  border-bottom: 4px solid #FF5722;
+}
+
+.card-body {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
+}
+
+.card-title {
+  color: #333;
+}
+
+.card-price {
+  color: #FF5722;
+}
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+
+  
+  .foods {
+    width: 100%;
+    margin: 20%;
+  }
+
+    .headi{
+      margin-top: 10px;
+    }
+
+  .itemss {
+    font-size: larger;
+    font-weight: bolder;
+  }
+
+  .food {
+    width: 120px;
+    height: 120px;
+  }
+
+  .foodcategory {
+    display: grid !important;
+    grid-template-columns:1fr 1fr 1fr !important;
+  }
+
+  .category {
+    padding: 0;
+  }
+
+  .mind {
+    margin-top: 100px;
+    padding: 12px;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .ch {
+      display: grid;
+      grid-template-columns: 1fr 1fr !important;  
+  }
+
+
+}
+

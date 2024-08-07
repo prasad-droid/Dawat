@@ -10,7 +10,65 @@
     <link rel="stylesheet" href="{% static 'style.css' %}" />
     <link rel="shortcut icon" href="{% static 'src/k.png' %}" type="image/x-icon">
     <title>Food Order</title>
+    <style>
+.container {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+}
 
+.card {
+  border: none;
+}
+
+.card-body {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.fixed-size {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.btn-primary {
+  background-color: #044747;
+  border-color: #044747;
+  width: 100%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+}
+
+.btn-primary:hover {
+  background-color: #033939;
+  border-color: #033939;
+}
+
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+  border-bottom: 4px solid #FF5722;
+}
+
+#a1{
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: larger;
+  color: #6e1e06;
+}
+      
+    </style>
+    
 
     
   </head>
@@ -42,30 +100,31 @@
       </div>
   </nav>
 
-  <div class="prod">
-    <div class="ordercon">
-      <div class="foodimgs">
-        <img src="{% static 'dta/'%}{{data.0.image}}" />
+  <div class="container pt-5 px-sm-3" style="margin-top: 8rem;">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-5">
+        <div class="card">
+          <img src="{% static 'dta/'%}{{data.0.image}}" class="card-img-top img-fluid fixed-size rounded" alt="{{data.0.name}}">
+        </div>
       </div>
-      <div class="detialsfood">
-        <div class="nameoffood">
-          <p>{{data.0.name}}</p>
+      <div class="col-md-5">
+        <div class="card-body">
+          <h3 class="card-title">{{data.0.name}}</h3>
+          <p class="card-text">{{data.0.info}}</p>
+          <h4 class="text-primary">Rs {{data.0.price}}</h4>
+          <div class="form-group my-3">
+            <label for="qua" class="form-label">Enter Quantity:</label>
+            <input type="number" id="qua" class="form-control" min="1" value="1">
+          </div>
+          <a class="btn btn-primary" href="/addcart/{{data.0.id}}?qty="+>BUY</a>
+          <p id="a1"></p>
         </div>
-        <div class="descfood">
-          <p>{{data.0.info}}</p>
-        </div>
-        <div class="price">
-          <p>Rs {{data.0.price}}</p>
-        </div>
-        <div class="quantity">
-          <p>Enter Quantity:</p>
-          <input type="number" id="qua" min="1" value="1" />
-        </div>
-        <a class="btn" href="/addcart/{{data.0.id}}">BUY</a>
-        <span id="a1"></span>
       </div>
     </div>
   </div>
+  
+  
+  
   </body>
 </html>
 
@@ -75,7 +134,7 @@
   let isAdded = params.get('added')
 
   if(isAdded){
-    document.getElementById('a1').innerHTML = "Added to Card"
+    document.getElementById('a1').innerHTML = "Added to Cart"
   }
 
 </script>

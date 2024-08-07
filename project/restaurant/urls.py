@@ -18,6 +18,9 @@ urlpatterns = [
     path('product/<int:Id>', views.productpage),
     path('products/<int:Id>', views.productpagess),
     path('addcart/<int:ID>/', views.addToCart),
+    path('addcarts/<int:ID>/', views.addToCarts),
     path('cart', views.cartpage),
-    path('search/<str:item>',views.searchpage)
+    path('logout',views.logout),
+    path('search/<str:item>',views.searchpage),
+
 ]

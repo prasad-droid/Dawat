@@ -106,12 +106,14 @@ def southfoodpage(req):
 
 
 def productpage(req, Id):
+    params = req.GET.get('qty')
+    print(params)
     db = products.objects.filter(id=Id).values()
     clearDb = list(db)
     # print(clearDb)
     for i in clearDb:
         i.update({'image': i['image'].replace('None/', '')})
-    return render(req, 'product.html', context={"data": clearDb})
+    return render(req, 'product.html', context={"data": clearDb,"qtys": params})
 
 
 def productpagess(req, Id):
@@ -120,21 +122,22 @@ def productpagess(req, Id):
     print(clearDb)
     for i in clearDb:
         i.update({'image': i['image'].replace('None/', '')})
-        i.update({'image': i['image'].split('_')[
-                 0]+i['image'].split('_')[1][-4:]})
+
     return render(req, 'productss.html', context={"data": clearDb})
 
 
 def loginpage(req):
     if (req.method == "POST"):
-        global userId
+        global userId   
         phones = req.POST['phone']
         pwd = req.POST['password1']
+        print(phones, pwd)
         user = Users.objects.get(phone=phones, pwd=pwd)
         print(user)
 
         if (user):
             userId = user.id
+            req.session['userID'] = user.id
             print(userId)
             return redirect('/')
 
@@ -151,7 +154,7 @@ def signuppage(req):
         citys = req.POST['city']
         addr = req.POST['address']
         Users.objects.create(name=uname, pwd=passw, email=emails,
-                             phone=phone, state=states, city=citys, address=addr)
+                             phone=phone, state=states, city=citys, address=addr,cart={})
         return redirect('/')
     return render(req, 'signup.html')
 
@@ -178,6 +181,16 @@ def addToCart(req, ID):
     return redirect('/product/'+str(ID)+'?added=true')
 
 
+def addToCarts(req, ID):
+    global userId
+    user = Users.objects.get(id=userId)
+    user.cart['products'].append(ID)
+    user.cart['products'] = list(set(user.cart['products']))
+    # print("hello", user.cart['products'])
+    user.save()
+    return redirect('/products/'+str(ID)+'?added=true')
+
+
 def searchpage(req, item):
     db = products.objects.all().values()
     filterdb = []
@@ -186,3 +199,19 @@ def searchpage(req, item):
             filterdb.append(i)
 
     return render(req, 'search.html', context={"data": filterdb})
+
+
+def logout(req):
+    req.session.clear()
+    return redirect('/')
+
+
+def homepage(req):
+    user = req.session.get('userID')
+    print("hello", user)
+    if not user:
+        return redirect('/login')
+    else:
+        userDetail = Users.objects.all().values().get(id=user)
+        print(userDetail)
+        return render(req, 'index.html', context={"userdetail": userDetail})

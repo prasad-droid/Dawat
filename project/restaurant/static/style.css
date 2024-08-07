@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 * {
   padding: 0;
@@ -52,11 +51,11 @@ body {
 }
 
 .category {
-  padding: 80px;
+  margin-top:78px;
 }
 
 .mind {
-  padding-top: 2%;
+  margin-left: 30px;
   font-size: 32px;
   font-weight: bolder;
 }
@@ -148,8 +147,8 @@ a {
   font-size: 40px;
 }
 
-.headis{
-  padding:2%;
+.headis {
+  padding: 2%;
   text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 40px;
@@ -201,49 +200,50 @@ a {
   margin: 2%;
 }
 
-.foods:hover{
+.foods:hover {
   transform: scale(1.2);
   transition: 1.2s;
 }
 
-.down{
+.down {
   background-color: black;
   color: white;
-  display:flex;
+  display: flex;
   justify-content: space-around;
 }
 
-.sa p{
+.sa p {
   color: white;
   line-height: 23px;
   font-size: 18px;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.downpart{
+.downpart {
   background-color: black;
   color: white;
 }
 
-.sc p{
-font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-font-size:35px
+.sc p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 35px;
 }
 
-.sso i{
+.sso i {
   margin: 6px;
 }
 
 .prod {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding:0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
   background-color: #f4f4f4;
-  padding-top: 85px; /* Space for fixed navbar */
+  padding-top: 85px;
+  /* Space for fixed navbar */
 }
 
 .ordercon {
@@ -310,72 +310,65 @@ font-size:35px
   color: #333;
 }
 
-input[type="number"] {
-  width: 60px;
-  padding: 8px;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.navbar-custom {
+  background-color: #044747;
+  height: 70px;
+  border-bottom: 2px solid #FF5722;
+}
+
+.navbar-brand img {
+  width: 50px;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 9h18M6 15h18M6 21h18"/></svg>');
+}
+
+.form-control {
+  border-radius: 50px;
+  padding: 10px 15px;
+  
+}
+
+.btn-primary {
+  background-color: #FF5722;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
   margin-left: 10px;
 }
 
-button,.btn {
-  padding: 12px 24px;
-  font-size: 1.2em;
-  color: #fff;
-  background-color: #27ae60;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: flex-start;
+.navbar-nav .nav-item {
+  margin-left: 15px;
 }
 
-button:hover {
-  background-color: #2ecc71;
+.nav-link {
+  color: #fff !important;
 }
 
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.nav-link:hover {
+  color: #FF5722 !important;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+.navbar-collapse {
+  align-items: center;
 }
-
-.card-img-top {
-  border-bottom: 4px solid #FF5722;
-}
-
-.card-body {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 1));
-}
-
-.card-title {
-  color: #333;
-}
-
-.card-price {
-  color: #FF5722;
-}
-
-
-
-
 
 
 @media screen and (max-width: 768px) {
 
-  
   .foods {
     width: 100%;
     margin: 20%;
   }
 
-    .headi{
-      margin-top: 10px;
-    }
+  .headi {
+    margin-top: 10px;
+  }
 
   .itemss {
     font-size: larger;
@@ -389,7 +382,7 @@ button:hover {
 
   .foodcategory {
     display: grid !important;
-    grid-template-columns:1fr 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
   }
 
   .category {
@@ -404,10 +397,25 @@ button:hover {
   }
 
   .ch {
-      display: grid;
-      grid-template-columns: 1fr 1fr !important;  
+    display: grid;
+    grid-template-columns: 1fr 1fr !important;
   }
 
-
+  .earch {
+    width: 3000px;
+  }
 }
 
+@media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+
+  .earch {
+    width: 3000px;
+  }
+ 
+}

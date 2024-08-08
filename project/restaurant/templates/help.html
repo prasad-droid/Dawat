@@ -1,0 +1,285 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="{% static 'dta/k.png' %}" type="image/x-icon" />
+    <title>Help and Support - Daawat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .support-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+        }
+        .support-content h2 {
+            color: #ff6f61;
+            margin-top: 0;
+        }
+        .support-content h3 {
+            color: #ff6f61;
+            margin-top: 0;
+        }
+        .support-content p {
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .contact-info h3 {
+            margin-top: 0;
+            color: #ff6f61;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        .troubleshooting-guide {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .troubleshooting-guide h3 {
+            margin-top: 0;
+            color: #ff6f61;
+        }
+        .troubleshooting-guide ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .troubleshooting-guide li {
+            margin-bottom: 10px;
+        }
+        .resources {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .resources h3 {
+            margin-top: 0;
+            color: #ff6f61;
+        }
+        .resources a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+        .resources a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            .support-content, .contact-info, .troubleshooting-guide, .resources {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'dta/k.png' %}" alt="Logo" class="rounded-pill" 
+                     style="width: 50px; margin-left: 10px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search Form -->
+                <form class="d-flex mx-auto my-2 my-lg-0 w-100 w-lg-auto" style="max-width: 500px;">
+                    <input class="form-control me-2" type="search" placeholder="Search..."  id="search" style="flex-grow: 1; min-width: 150px;">
+                    <button class="btn btn-outline-light" type="submit" id="sea">Search</button>
+                </form>
+                <!-- Navbar Items -->
+                <ul class="navbar-nav ms-auto d-flex flex-row align-items-center mt-2 mt-lg-0">
+                    <!-- Cart Item -->
+                    <li class="nav-item me-4">
+                        <a class="nav-link text-light d-flex align-items-center" href="cart">
+                            <i class="fa-solid fa-cart-shopping me-2"></i> 
+                            Cart
+                        </a>
+                    </li>
+                    <!-- User Dropdown -->
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" 
+                                id="dropdownMenuButton" data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                            <i class="fa-solid fa-circle-user" style="font-size: 30px;"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="dropdownMenuButton">
+                            {% if not user %}
+                                <li><a class="dropdown-item" href="login">Log In</a></li>
+                                <li><a class="dropdown-item" href="signup">Create Account</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="profile">{{ userdetail.username }}</a></li>
+                                <li><a class="dropdown-item" href="logout">Logout</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Help and Support</h1>
+    </header>
+
+    <div class="container">
+        <div class="support-content">
+            <h2>How Can We Assist You?</h2>
+            <p>Welcome to Daawat's Help and Support page. We are here to ensure that your experience with us is smooth and enjoyable. If you have any questions or need assistance, please find helpful information below:</p>
+
+            <h3>Frequently Asked Questions</h3>
+            <ul>
+                <li><strong>How do I place an order?</strong> You can place an order through our website or mobile app. Simply select your dishes, add them to your cart, and proceed to checkout.</li>
+                <li><strong>Can I track my order?</strong> Yes, you can track your order in real-time via our tracking feature available on our website or app.</li>
+                <li><strong>What should I do if there’s an issue with my order?</strong> If you encounter any issues, please contact our support team immediately using the contact details below.</li>
+                <li><strong>What are your delivery hours?</strong> Our delivery hours are from 10 AM to 10 PM daily. Orders can be placed at any time during these hours.</li>
+            </ul>
+
+            <div class="troubleshooting-guide">
+                <h3>Troubleshooting Guide</h3>
+                <ul>
+                    <li><strong>Issue:</strong> Unable to place an order <br><strong>Solution:</strong> Ensure your payment details are correct and try refreshing the page. If the issue persists, contact support.</li>
+                    <li><strong>Issue:</strong> Order not delivered on time <br><strong>Solution:</strong> Check the order tracking status. If there’s a delay, please reach out to our support team for assistance.</li>
+                    <li><strong>Issue:</strong> Incorrect items received <br><strong>Solution:</strong> Contact us with your order number and details about the issue. We’ll work to resolve it promptly.</li>
+                </ul>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><strong>Phone:</strong>025-025-0215</p>
+                <p><strong>Email:</strong>dawaat@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="downpart">
+        <div class="sc d-flex" style="margin-left: 30px; padding: 12px">
+            <img src="{% static 'dta/k.png' %}" width="60px" height="60px" alt="Daawat Logo" />
+            <p>Daawat</p>
+        </div>
+        <div class="down">
+            <div class="infoserv">
+                <h3>Company</h3>
+                <div class="sa">
+                    <a href="about">
+                        <p>About Us</p>
+                    </a>
+                    <a href="help">
+                        <p>Help & Support</p>
+                    </a>
+                    <a href="term">
+                        <p>Terms & Conditions</p>
+                    </a>
+                    <a href="privacy">
+                        <p>Privacy Policy</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h3>Contact</h3>
+                <div class="sa">
+                    <div class="sso d-flex">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>025-025-0215</p>
+                    </div>
+                    <div class="sso d-flex">
+                        <i class="fa-solid fa-envelope-open"></i>
+                        <p>dawaat@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social">
+                <h3>Follow Us</h3>
+                <div class="sa sss">
+                    <a href="https://www.instagram.com/accounts/login/?hl=en" style="text-decoration: none; color: white">
+                        <div class="sso d-flex">
+                            <i class="fa-brands fa-instagram"></i>
+                            <p>Instagram</p>
+                        </div>
+                    </a>
+                    <a href="https://www.facebook.com/" style="text-decoration: none; color: white">
+                        <div class="sso d-flex">
+                            <i class="fa-brands fa-facebook"></i>
+                            <p>Facebook</p>
+                        </div>
+                    </a>
+                    <a href="https://x.com/login" style="text-decoration: none; color: white">
+                        <div class="sso d-flex">
+                            <i class="fa-brands fa-twitter"></i>
+                            <p>Twitter</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        let searchButton = document.getElementById("sea");
+        let searchInput = document.getElementById("search");
+
+        searchButton.addEventListener("click", (event) => {
+            event.preventDefault(); 
+            let query = encodeURIComponent(searchInput.value.trim());
+            if (query) {
+                window.location.href = `${window.location.origin}/search/${query}`;
+            }
+        });
+    });
+</script>

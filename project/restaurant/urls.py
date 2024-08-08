@@ -22,5 +22,8 @@ urlpatterns = [
     path('cart', views.cartpage),
     path('logout',views.logout),
     path('search/<str:item>',views.searchpage),
-
+    path('about',views.aboutpage),
+    path('term',views.termpage),
+    path('privacy',views.privacypage),
+    path('help',views.helppage)
 ]

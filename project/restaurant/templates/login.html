@@ -7,21 +7,27 @@
     <title>Foodie Login</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <style>
-        .loginsign{
+        .log{
+            margin: 0;
+            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+            background-color: #f2f2f2;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 100px;
-            background-color: #f2f2f2;
-            font-family: 'Roboto', Arial, Helvetica, sans-serif;
+         
         }
 
-        .login-container {
+        body{
+            background-color: #f2f2f2;
+        }
+
+          .login-container {
             background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            width: 90%;
+            max-width: 400px;
             text-align: center;
         }
 
@@ -29,10 +35,11 @@
             margin-bottom: 20px;
             color: #e63946;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.8em;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: left;
         }
 
@@ -45,16 +52,16 @@
         }
 
         .input-group input {
-            width: 100%;
-            padding: 10px;
+            width: 90%;
+            padding: 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
         }
 
         button {
-            width: 100%;
-            padding: 10px;
+            width: 90%;
+            padding: 12px;
             background-color: #e63946;
             border: none;
             border-radius: 4px;
@@ -62,7 +69,7 @@
             font-size: 18px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-bottom: 10px;
+            margin-top: 10px;
         }
 
         button:hover {
@@ -70,6 +77,8 @@
         }
 
         a {
+            display: block;
+            margin-top: 10px;
             text-decoration: none;
             color: #193b53;
             font-size: 16px;
@@ -79,18 +88,20 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 576px) {
-            body {
-                padding: 50px 20px;
-            }
+        
+        img {
+            width: 100px;
+       
+        }
 
+        @media (max-width: 576px) {
             .login-container {
-                width: 100%;
-                padding: 20px;
+                padding: 15px;
+                width: 95%;
             }
 
             .login-container h1 {
-                font-size: 24px;
+                font-size: 1.5em;
             }
 
             .input-group label {
@@ -108,8 +119,10 @@
     </style>
 </head>
 <body>
-    <div class="loginsign">
+    <img src="{% static 'dta/k.png' %}" alt="Logo">
+    <div class="log">
         <div class="login-container">
+
             <h1>Welcome to Daawat!</h1>
             <form method="post">
                 {% csrf_token %}
@@ -122,9 +135,7 @@
                     <input type="password" id="password" name="password1" required>
                 </div>
                 <button type="submit">Login</button>
-                <a href="signup">
-                    <p>Sign up?</p>
-                </a>
+                <a href="signup">Sign up?</a>
             </form>
         </div>
     </div>

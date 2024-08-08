@@ -8,20 +8,36 @@ isLoggedIn = False
 
 userId: int = 3
 
+def remove_duplicates(lst):
+    seen = {}
+    result = []
+    
+    for sublist in lst:
+        key = sublist[0]
+        if key not in seen:
+            seen[key] = True
+            result.append(sublist)
+    
+    return result
 
 def homepage(req):
-    db = products.objects.filter(category="topfood").values()
-    clearDb = list(db)
-    for i in clearDb:
-        i.update({'image': i['image'].replace('None/', '')})
-        i.update({'image': i['image'].split('_')[
-                 0]+i['image'].split('_')[1][-4:]})
+    user = req.session.get('userID')
+    if not user:
+        return redirect('/login')
+    else:
+        db = products.objects.filter(category="topfood").values()
+        clearDb = list(db)
+        for i in clearDb:
+            i.update({'image': i['image'].replace('None/', '')})
+            i.update({'image': i['image'].split('_')[
+                0]+i['image'].split('_')[1][-4:]})
 
-    db1 = products.objects.filter(category="offer").values()
-    clearDb1 = list(db1)
-    for i in clearDb1:
-        i.update({'image': i['image'].replace('None/', '')})
-    return render(req, 'index.html', context={"topfood": clearDb, "offers": clearDb1})
+        db1 = products.objects.filter(category="offer").values()
+        clearDb1 = list(db1)
+        print(clearDb)
+        for i in clearDb1:
+            i.update({'image': i['image'].replace('None/', '')})
+        return render(req, 'index.html', context={"topfood": clearDb, "offers": clearDb1})
 
 
 def burgerpage(req):
@@ -106,14 +122,13 @@ def southfoodpage(req):
 
 
 def productpage(req, Id):
-    params = req.GET.get('qty')
-    print(params)
+
     db = products.objects.filter(id=Id).values()
     clearDb = list(db)
     # print(clearDb)
     for i in clearDb:
         i.update({'image': i['image'].replace('None/', '')})
-    return render(req, 'product.html', context={"data": clearDb,"qtys": params})
+    return render(req, 'product.html', context={"data": clearDb})
 
 
 def productpagess(req, Id):
@@ -128,7 +143,7 @@ def productpagess(req, Id):
 
 def loginpage(req):
     if (req.method == "POST"):
-        global userId   
+        global userId
         phones = req.POST['phone']
         pwd = req.POST['password1']
         print(phones, pwd)
@@ -154,7 +169,7 @@ def signuppage(req):
         citys = req.POST['city']
         addr = req.POST['address']
         Users.objects.create(name=uname, pwd=passw, email=emails,
-                             phone=phone, state=states, city=citys, address=addr,cart={})
+                             phone=phone, state=states, city=citys, address=addr, cart={})
         return redirect('/')
     return render(req, 'signup.html')
 
@@ -164,28 +179,31 @@ def cartpage(req):
 
     user = Users.objects.get(id=userId)
     for i in user.cart['products']:
-        d = products.objects.get(id=i)
+        d = [products.objects.get(id=i[0]),i[1]]
         Cartarray.append(d)
-        Cartarray = list(set(Cartarray))
 
     return render(req, 'cart.html', context={"data": Cartarray})
 
 
 def addToCart(req, ID):
+    params = req.GET.get('qty')
+    print(params)
     global userId
     user = Users.objects.get(id=userId)
-    user.cart['products'].append(ID)
-    user.cart['products'] = list(set(user.cart['products']))
+    user.cart['products'].append([ID, params])
+    user.cart['products'] = remove_duplicates(user.cart['products'])
     # print("hello", user.cart['products'])
     user.save()
     return redirect('/product/'+str(ID)+'?added=true')
 
 
 def addToCarts(req, ID):
+    params = req.GET.get('qty')
+    print(params)
     global userId
     user = Users.objects.get(id=userId)
-    user.cart['products'].append(ID)
-    user.cart['products'] = list(set(user.cart['products']))
+    user.cart['products'].append((ID, params))
+    user.cart['products'] = remove_duplicates(user.cart['products'])
     # print("hello", user.cart['products'])
     user.save()
     return redirect('/products/'+str(ID)+'?added=true')
@@ -197,7 +215,6 @@ def searchpage(req, item):
     for i in db:
         if i['name'].lower().find(item) != -1:
             filterdb.append(i)
-
     return render(req, 'search.html', context={"data": filterdb})
 
 
@@ -206,12 +223,17 @@ def logout(req):
     return redirect('/')
 
 
-def homepage(req):
-    user = req.session.get('userID')
-    print("hello", user)
-    if not user:
-        return redirect('/login')
-    else:
-        userDetail = Users.objects.all().values().get(id=user)
-        print(userDetail)
-        return render(req, 'index.html', context={"userdetail": userDetail})
+def aboutpage(req):
+    return render(req, 'about.html')
+
+
+def termpage(req):
+    return render(req, 'term.html')
+
+
+def privacypage(req):
+    return render(req, 'privacy.html')
+
+
+def helppage(req):
+    return render(req, 'help.html')

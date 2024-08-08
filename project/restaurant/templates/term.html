@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" href="{% static 'dta/k.png' %}" type="image/x-icon" />
+    <title>Terms and Conditions - Daawat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .terms-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+        }
+        .terms-content h2 {
+            color: #ff6f61;
+            margin-top: 0;
+        }
+        .terms-content h3 {
+            color: #ff6f61;
+            margin-top: 0;
+        }
+        .terms-content p {
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            .terms-content {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'dta/k.png' %}" alt="Logo" class="rounded-pill" 
+                     style="width: 50px; margin-left: 10px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Search Form -->
+                <form class="d-flex mx-auto my-2 my-lg-0 w-100 w-lg-auto" style="max-width: 500px;">
+                    <input class="form-control me-2" type="search" placeholder="Search..."  id="search" style="flex-grow: 1; min-width: 150px;">
+                    <button class="btn btn-outline-light" type="submit" id="sea">Search</button>
+                </form>
+                <!-- Navbar Items -->
+                <ul class="navbar-nav ms-auto d-flex flex-row align-items-center mt-2 mt-lg-0">
+                    <!-- Cart Item -->
+                    <li class="nav-item me-4">
+                        <a class="nav-link text-light d-flex align-items-center" href="cart">
+                            <i class="fa-solid fa-cart-shopping me-2"></i> <!-- Added margin-right for icon -->
+                            Cart
+                        </a>
+                    </li>
+                    <!-- User Dropdown -->
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" 
+                                id="dropdownMenuButton" data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                            <i class="fa-solid fa-circle-user" style="font-size: 30px;"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="dropdownMenuButton">
+                            {% if not user %}
+                                <li><a class="dropdown-item" href="login">Log In</a></li>
+                                <li><a class="dropdown-item" href="signup">Create Account</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="profile">{{ userdetail.username }}</a></li>
+                                <li><a class="dropdown-item" href="logout">Logout</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Terms and Conditions</h1>
+    </header>
+
+    <div class="container">
+        <div class="terms-content">
+            <h2>Introduction</h2>
+            <p>Welcome to Daawat. By accessing or using our website and services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
+
+            <h2>1. Definitions</h2>
+            <p><strong>“Service”</strong> refers to the food delivery and related services provided by Daawat.</p>
+            <p><strong>“User”</strong> refers to anyone who accesses or uses our website or services.</p>
+
+            <h2>2. User Responsibilities</h2>
+            <p>As a user, you agree to:</p>
+            <ul>
+                <li>Provide accurate information when placing an order.</li>
+                <li>Maintain the confidentiality of your account and password.</li>
+                <li>Notify us immediately of any unauthorized use of your account.</li>
+                <li>Abide by all applicable laws and regulations while using our services.</li>
+            </ul>
+
+            <h2>3. Orders and Payments</h2>
+            <p>All orders are subject to availability and confirmation. Payment must be made at the time of order placement. We accept various payment methods as listed on our website.</p>
+
+            <h2>4. Delivery</h2>
+            <p>Delivery times are estimates and may vary depending on your location and other factors. We are not responsible for delays caused by external factors beyond our control.</p>
+
+            <h2>5. Refunds and Cancellations</h2>
+            <p>Requests for refunds or cancellations must be made within a specified time frame as mentioned on our website. Refunds are processed in accordance with our refund policy.</p>
+
+            <h2>6. Intellectual Property</h2>
+            <p>All content on our website, including text, images, and logos, is the property of Daawat and protected by intellectual property laws. You may not use or reproduce any content without our permission.</p>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>We are not liable for any indirect, incidental, or consequential damages arising from your use of our services. Our liability is limited to the maximum extent permitted by law.</p>
+
+            <h2>8. Changes to Terms</h2>
+            <p>We may update these terms from time to time. Any changes will be posted on our website, and your continued use of our services constitutes acceptance of the updated terms.</p>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        let searchButton = document.getElementById("sea");
+        let searchInput = document.getElementById("search");
+
+        searchButton.addEventListener("click", (event) => {
+            event.preventDefault(); 
+            let query = encodeURIComponent(searchInput.value.trim());
+            if (query) {
+                window.location.href = `${window.location.origin}/search/${query}`;
+            }
+        });
+    });
+</script>

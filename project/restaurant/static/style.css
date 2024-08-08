@@ -51,11 +51,11 @@ body {
 }
 
 .category {
-  margin-top:78px;
+  margin-top:20px;
 }
 
 .mind {
-  margin-left: 30px;
+  margin-left: 4%;
   font-size: 32px;
   font-weight: bolder;
 }
@@ -141,7 +141,7 @@ a {
 }
 
 .headi {
-  margin-top: -50px;
+  margin: 10px;
   text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 40px;
@@ -310,53 +310,8 @@ a {
   color: #333;
 }
 
-.navbar-custom {
-  background-color: #044747;
-  height: 70px;
-  border-bottom: 2px solid #FF5722;
-}
 
-.navbar-brand img {
-  width: 50px;
-}
 
-.navbar-toggler {
-  border: none;
-}
-
-.navbar-toggler-icon {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 9h18M6 15h18M6 21h18"/></svg>');
-}
-
-.form-control {
-  border-radius: 50px;
-  padding: 10px 15px;
-  
-}
-
-.btn-primary {
-  background-color: #FF5722;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  margin-left: 10px;
-}
-
-.navbar-nav .nav-item {
-  margin-left: 15px;
-}
-
-.nav-link {
-  color: #fff !important;
-}
-
-.nav-link:hover {
-  color: #FF5722 !important;
-}
-
-.navbar-collapse {
-  align-items: center;
-}
 
 
 @media screen and (max-width: 768px) {
@@ -385,12 +340,8 @@ a {
     grid-template-columns: 1fr 1fr 1fr !important;
   }
 
-  .category {
-    padding: 0;
-  }
 
   .mind {
-    margin-top: 100px;
     padding: 12px;
     font-size: 25px;
     text-align: center;
@@ -401,21 +352,26 @@ a {
     grid-template-columns: 1fr 1fr !important;
   }
 
-  .earch {
-    width: 3000px;
-  }
-}
-
-@media (min-width: 992px) {
-  .navbar-collapse {
+  .down{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+    flex-wrap: wrap;
   }
 
-  .earch {
-    width: 3000px;
+  .sc{
+    display: flex;
+    justify-content: center;
   }
- 
+
+  .social{
+    width: 90%;
+      }
+
+  .social h3{
+    text-align: center;
+  }
+
+  .sss{
+    display: flex;
+    justify-content: space-between;    
+  }
 }

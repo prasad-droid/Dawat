@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="{% static 'style.css' %}" />
     <link
       rel="shortcut icon"
-      href="{% static 'src/k.png' %}"
+      href="{% static 'dta/k.png' %}"
       type="image/x-icon"
     />
-    <title>Daawat</title>
+    <title>Daawat - Cart</title>
     <style>
       .cart_container {
         padding-top: 100px;
@@ -82,7 +82,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index">
           <img
             src="{% static 'dta/k.png' %}"
             alt="Logo"
@@ -167,34 +167,35 @@
         </div>
       </div>
     </nav>
-
     <div class="cart_container container">
       <h1 class="text-center mb-4">Your Order</h1>
       <div class="row">
-        {% if data %} {% for i in data %}
-        <div class="col-lg-6 col-md-12">
-          <div class="buy_product">
-            <div class="foodphto">
-              <img src="{% static '/' %}{{i.0.image}}" alt="{{i.0.name}}" />
-            </div>
-            <div class="products_det">
-              <h5>{{i.0.name}}</h5>
-              <p class="text-danger fw-bold">Rs {{i.0.price}}</p>
-              <p class="fw-bold">Quantity: {{i.1}}</p>
-              <div class="cancelorder">
-                <button class="btn btn-danger">Cancel Order</button>
+        {% if data %}
+          {% for i in data %}
+            <div class="col-lg-6 col-md-12 mb-4">
+              <div class="buy_product p-3 border rounded shadow-sm">
+                <div class="d-flex align-items-center">
+                  <div class="foodphto me-3">
+                    <img src="{% static '/' %}{{i.0.image}}" alt="{{i.0.name}}" class="img-fluid rounded" />
+                  </div>
+                  <div class="products_det">
+                    <h5 class="mb-2">{{i.0.name}}</h5>
+                    <p class="text-danger fw-bold mb-2">Rs {{i.0.price}}</p>
+                    <p class="fw-bold mb-2">Quantity: {{i.1}}</p>
+                    <p class="text-muted">Your food will be delivered within 30 minutes</p>
+                  </div>
+                </div>
               </div>
             </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-12">
+            <h3 class="text-center text-muted">No items in Cart</h3>
           </div>
-        </div>
-        {% endfor %} {% else %}
-        <div class="col-12">
-          <h3 class="text-center">No items in Cart</h3>
-        </div>
         {% endif %}
       </div>
     </div>
-
+    
     <div class="downpart">
       <div class="sc d-flex" style="margin-left: 30px; padding: 12px">
         <img

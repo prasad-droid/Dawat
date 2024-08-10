@@ -185,6 +185,7 @@ def cartpage(req):
     return render(req, 'cart.html', context={"data": Cartarray})
 
 
+
 def addToCart(req, ID):
     params = req.GET.get('qty')
     print(params)
